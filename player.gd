@@ -66,3 +66,6 @@ func rotate_boo():
 func jump():
 	velocity.y = jump_force
 	rotation = deg_to_rad(-30)
+	
+func die():
+	print("I'm dying here")
