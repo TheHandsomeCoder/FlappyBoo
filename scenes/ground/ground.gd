@@ -4,7 +4,7 @@ class_name Ground
 
 signal bird_crashed
 
-var speed = -150
+var speed = Global.speed
 
 @onready var sprite1 = $Ground1/Sprite2D
 @onready var sprite2 = $Ground2/Sprite2D

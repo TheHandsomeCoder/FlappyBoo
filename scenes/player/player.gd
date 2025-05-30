@@ -8,6 +8,8 @@ enum State {
 	DEAD
 } 
 
+signal player_death
+
 # Animation parameters
 var amplitude: float = 10.0   # How high the sprite will move
 var frequency: float = 2.0    # Speed of the movement
@@ -69,3 +71,4 @@ func jump():
 	
 func die():
 	print("I'm dying here")
+	emit_signal("player_death")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://djmfh7idyba12"]
+
+[ext_resource type="PackedScene" uid="uid://cq73ftoj67ev" path="res://scenes/player/player.tscn" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://cqy4eujqlj5wo" path="res://scenes/main/main.gd" id="1_gyg6b"]
+[ext_resource type="PackedScene" uid="uid://dpvx1h0bummai" path="res://scenes/ground/ground.tscn" id="2_r0du0"]
+[ext_resource type="PackedScene" uid="uid://5lrfl3lms5ub" path="res://scenes/obstacle/obstacle.tscn" id="4_cm0pq"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_gyg6b")
+
+[node name="Ground" parent="." instance=ExtResource("2_r0du0")]
+position = Vector2(256, 344)
+
+[node name="Player" parent="." instance=ExtResource("1_glv2v")]
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(52, 172)
+
+[node name="Obstacle" parent="." instance=ExtResource("4_cm0pq")]
+position = Vector2(136, 256)
