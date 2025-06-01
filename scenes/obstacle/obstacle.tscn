@@ -1,22 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://5lrfl3lms5ub"]
+[gd_scene load_steps=4 format=3 uid="uid://5lrfl3lms5ub"]
 
-[ext_resource type="PackedScene" uid="uid://cximeweoe7xx" path="res://pipe.tscn" id="1_sl1jc"]
+[ext_resource type="Script" uid="uid://u86tsfhkuk6j" path="res://scenes/obstacle/obstacle.gd" id="1_1ys07"]
+[ext_resource type="PackedScene" uid="uid://cximeweoe7xx" path="res://scenes/pipe/pipe.tscn" id="1_sl1jc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sl1jc"]
-size = Vector2(64, 80)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ys07"]
+size = Vector2(24, 80.5)
 
 [node name="Obstacle" type="Node2D"]
+script = ExtResource("1_1ys07")
 
-[node name="Pipe Top" parent="." instance=ExtResource("1_sl1jc")]
-position = Vector2(0, -40)
-rotation = 3.14159
-scale = Vector2(-1, 1)
+[node name="PipeTop" parent="." instance=ExtResource("1_sl1jc")]
+position = Vector2(-32, -40)
+scale = Vector2(1, -1)
 
-[node name="Pipe Bottom" parent="." instance=ExtResource("1_sl1jc")]
-position = Vector2(0, 40)
+[node name="PipeBottom" parent="." instance=ExtResource("1_sl1jc")]
+position = Vector2(-32, 40)
 
-[node name="ScoreArea" type="Area2D" parent="."]
-position = Vector2(32, 0)
+[node name="ScoringArea" type="Area2D" parent="."]
+position = Vector2(48, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
-shape = SubResource("RectangleShape2D_sl1jc")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoringArea"]
+shape = SubResource("RectangleShape2D_1ys07")
+
+[connection signal="body_entered" from="ScoringArea" to="." method="_on_scoring_area_body_entered"]
