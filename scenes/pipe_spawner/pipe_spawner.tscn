@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxkophngtu00x"]
+
+[ext_resource type="Script" uid="uid://wcl0n2ky7dl3" path="res://scenes/pipe_spawner/pipe_spawner.gd" id="1_sjol4"]
+
+[node name="PipeSpawner" type="Node2D"]
+script = ExtResource("1_sjol4")

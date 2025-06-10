@@ -26,7 +26,7 @@ func _process(delta):
 
 
 func _body_entered(body):
-	bird_crashed.emit()
+	SignalBus.emit_signal("bird_crashed")
 	(body as Player).die()
 	
 func stop():

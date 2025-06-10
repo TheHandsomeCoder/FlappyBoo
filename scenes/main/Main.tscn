@@ -1,12 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://djmfh7idyba12"]
+[gd_scene load_steps=7 format=3 uid="uid://djmfh7idyba12"]
 
 [ext_resource type="PackedScene" uid="uid://cq73ftoj67ev" path="res://scenes/player/player.tscn" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://cqy4eujqlj5wo" path="res://scenes/main/main.gd" id="1_gyg6b"]
+[ext_resource type="PackedScene" uid="uid://borjf3g7cgstl" path="res://scenes/hud/hud.tscn" id="2_1rhdn"]
 [ext_resource type="PackedScene" uid="uid://dpvx1h0bummai" path="res://scenes/ground/ground.tscn" id="2_r0du0"]
 [ext_resource type="PackedScene" uid="uid://5lrfl3lms5ub" path="res://scenes/obstacle/obstacle.tscn" id="4_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://cxkophngtu00x" path="res://scenes/pipe_spawner/pipe_spawner.tscn" id="5_dc040"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_gyg6b")
+
+[node name="Hud" parent="." instance=ExtResource("2_1rhdn")]
 
 [node name="Ground" parent="." instance=ExtResource("2_r0du0")]
 z_index = 1
@@ -17,5 +21,6 @@ position = Vector2(256, 344)
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(52, 172)
 
-[node name="Obstacle" parent="." instance=ExtResource("4_cm0pq")]
-position = Vector2(344, 184)
+[node name="PipeSpawner" parent="." instance=ExtResource("5_dc040")]
+position = Vector2(432, 96)
+spawn_scene = ExtResource("4_cm0pq")

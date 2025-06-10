@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://borjf3g7cgstl"]
+
+[sub_resource type="SystemFont" id="SystemFont_6kolt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6kolt"]
+font = SubResource("SystemFont_6kolt")
+font_size = 32
+
+[node name="Hud" type="CanvasLayer"]
+
+[node name="Score" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_right = 19.0
+offset_bottom = 88.0
+grow_horizontal = 2
+label_settings = SubResource("LabelSettings_6kolt")
+horizontal_alignment = 1
