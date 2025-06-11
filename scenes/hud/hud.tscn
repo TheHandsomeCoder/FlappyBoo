@@ -8,7 +8,7 @@ font_size = 32
 
 [node name="Hud" type="CanvasLayer"]
 
-[node name="Score" type="Label" parent="."]
+[node name="ScoreLabel" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -16,5 +16,6 @@ offset_left = -24.0
 offset_right = 19.0
 offset_bottom = 88.0
 grow_horizontal = 2
+text = "0"
 label_settings = SubResource("LabelSettings_6kolt")
 horizontal_alignment = 1

@@ -24,7 +24,7 @@ func _ready():
 	hide();
 	$AnimatedSprite2D.play()
 
-func _process(delta):	
+func _physics_process(delta):	
 	if(Input.is_action_just_pressed("JUMP")):
 		current_state = State.ACTIVE
 		jump()

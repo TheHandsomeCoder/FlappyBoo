@@ -21,5 +21,3 @@ position = Vector2(48, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoringArea"]
 shape = SubResource("RectangleShape2D_1ys07")
-
-[connection signal="body_entered" from="ScoringArea" to="." method="_on_scoring_area_body_entered"]

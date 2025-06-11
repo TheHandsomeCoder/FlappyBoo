@@ -10,9 +10,12 @@ var speed = Global.speed
 @onready var sprite2 = $Ground2/Sprite2D
 
 func _ready():
+	$Ground1.connect("body_entered", Callable(self, "_body_entered"))
+	$Ground2.connect("body_entered", Callable(self, "_body_entered"))
+
 	sprite2.global_position.x = sprite1.global_position.x + sprite1.texture.get_width()
 
-func _process(delta):
+func _physics_process(delta):
 	sprite1.global_position.x += speed * delta
 	sprite2.global_position.x += speed * delta
 	
@@ -30,4 +33,4 @@ func _body_entered(body):
 	(body as Player).die()
 	
 func stop():
-	speed = 0#
+	speed = 0 #
