@@ -4,3 +4,5 @@
 
 [node name="PipeSpawner" type="Node2D"]
 script = ExtResource("1_sjol4")
+
+[node name="SpawnTimer" type="Timer" parent="."]

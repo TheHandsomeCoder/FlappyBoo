@@ -14,7 +14,7 @@ var frequency: float = 2.0    # Speed of the movement
 var time_passed = 0.0
 var start_position = Vector2()
 
-@export var current_state: State = State.IDLE;
+@export var player_state: State = State.IDLE;
 @export var gravity = 900.0
 @export var jump_force: int = -300
 var max_speed = 400
@@ -26,9 +26,8 @@ func _ready():
 
 func _physics_process(delta):	
 	if(Input.is_action_just_pressed("JUMP")):
-		current_state = State.ACTIVE
 		jump()
-	match current_state:
+	match player_state:
 		State.IDLE:						# Increment time
 			idle(delta);
 		State.ACTIVE:

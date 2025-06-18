@@ -2,19 +2,27 @@ extends Node2D
 
 # Accepts a scene to spawn and an interval for spawning
 @export var spawn_scene: PackedScene
-@export var spawn_interval: float = 2.0
+@export var spawn_interval_max: float = 1.8
+@export var spawn_interval_min: float = 1.2
 
-var _timer := 0.0
+@onready var timer = $SpawnTimer
 
-func _process(delta):
-	_timer += delta
-	if _timer >= spawn_interval:
-		_timer = 0.0
-		_spawn_obstacle()
+func _ready():
+	timer.timeout.connect(_spawn_obstacle)
 
 func _spawn_obstacle():
-	if spawn_scene:
-		var instance = spawn_scene.instantiate()
-		add_child(instance)
+	var instance = spawn_scene.instantiate()
+	add_child(instance)
+	timer.start(_get_random_spawn_interval())
 
+func _get_random_spawn_interval():
+	# Randomize the spawn interval for the next obstacle
+	return randf_range(spawn_interval_min, spawn_interval_max)
 
+func start():
+	# Start the timer to spawn obstacles
+	timer.start(_get_random_spawn_interval())
+
+func stop():
+	# Stop the timer to prevent spawning obstacles
+	timer.stop()
