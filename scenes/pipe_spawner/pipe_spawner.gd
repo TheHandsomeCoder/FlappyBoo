@@ -26,3 +26,14 @@ func start():
 func stop():
 	# Stop the timer to prevent spawning obstacles
 	timer.stop()
+	# Get all children of type $pack_scene and call stop on them
+	for child in get_children():
+		if child is Obstacle:
+			child.stop()
+
+func reset():
+	# Reset the timer and remove all obstacles
+	timer.stop()
+	for child in get_children():
+		if child is Obstacle:
+			child.queue_free()

@@ -31,6 +31,11 @@ func _physics_process(delta):
 func _body_entered(body):
 	SignalBus.emit_signal("bird_crashed")
 	(body as Player).die()
-	
+
+func start():
+	# Start the ground movement
+	speed = Global.speed
+
 func stop():
 	speed = 0 #
+

@@ -25,19 +25,31 @@ func _ready():
 	$AnimatedSprite2D.play()
 
 func _physics_process(delta):	
-	if(Input.is_action_just_pressed("JUMP")):
-		jump()
 	match player_state:
 		State.IDLE:						# Increment time
 			idle(delta);
 		State.ACTIVE:
+			if(Input.is_action_just_pressed("JUMP")):
+				jump()
 			active(delta);
+		State.DEAD:
+			pass
 
-func start(pos: Vector2):
-	position = pos
-	start_position = position
+func init(pos: Vector2):
+	start_position = pos
+	position = start_position
+	rotation = deg_to_rad(0)
+	velocity = Vector2.ZERO
+	player_state = State.IDLE
+	$CollisionShape2D.set_deferred("disabled", true)
+	$AnimatedSprite2D.play("idle")
 	show()
-	$CollisionShape2D.disabled = false
+
+
+func start():
+	player_state = State.ACTIVE
+	jump()
+	$CollisionShape2D.set_deferred("disabled", false)
 
 func idle(delta):	
 	time_passed += delta			
@@ -67,5 +79,13 @@ func jump():
 	rotation = deg_to_rad(-30)
 	
 func die():
-	print("I'm dying here")
+	print("I'm dying here!!")
+	$CollisionShape2D.set_deferred("disabled", true)
 	SignalBus.emit_signal("player_death")
+
+func reset():
+	player_state = State.IDLE
+	position = start_position
+	rotation = deg_to_rad(0)
+	velocity = Vector2.ZERO
+
