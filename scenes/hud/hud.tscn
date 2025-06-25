@@ -25,7 +25,6 @@ label_settings = SubResource("LabelSettings_6kolt")
 horizontal_alignment = 1
 
 [node name="Scoreboard" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="HighScore" type="Label" parent="Scoreboard"]
 anchors_preset = 8
