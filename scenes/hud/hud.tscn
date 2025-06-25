@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://borjf3g7cgstl"]
+[gd_scene load_steps=4 format=3 uid="uid://borjf3g7cgstl"]
+
+[ext_resource type="Script" uid="uid://b4jqfjf1lxe6o" path="res://scenes/hud/hud.gd" id="1_48c2t"]
 
 [sub_resource type="SystemFont" id="SystemFont_6kolt"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_6kolt"]
 font = SubResource("SystemFont_6kolt")
 font_size = 32
 
 [node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_48c2t")
 
 [node name="ScoreLabel" type="Label" parent="."]
 anchors_preset = 5
@@ -17,5 +21,42 @@ offset_right = 19.0
 offset_bottom = 88.0
 grow_horizontal = 2
 text = "0"
+label_settings = SubResource("LabelSettings_6kolt")
+horizontal_alignment = 1
+
+[node name="Scoreboard" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="HighScore" type="Label" parent="Scoreboard"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -8.0
+offset_right = 106.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "HighScore: 10"
+label_settings = SubResource("LabelSettings_6kolt")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CurrentScore" type="Label" parent="Scoreboard"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.5
+offset_top = -44.0
+offset_right = 60.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score: 0"
 label_settings = SubResource("LabelSettings_6kolt")
 horizontal_alignment = 1

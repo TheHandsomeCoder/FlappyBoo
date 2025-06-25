@@ -31,13 +31,14 @@ func _process(delta):
 func increment_score():
 	score += 1
 	print("Score incremented: ", score)
-	$Hud/ScoreLabel.text = str(score)
+	$Hud.set_score(score)
 
 func _on_Player_death():
 	$Ground.stop()
 	$PipeSpawner.stop()
 	game_state = GameState.GAME_OVER
-
+	$Hud.show_scoreboard()
+	
 func _start_game():
 	$Player.start()
 	game_state = GameState.ACTIVE
@@ -48,6 +49,6 @@ func _reset_game():
 	$PipeSpawner.reset()
 	game_state = GameState.IDLE
 	score = 0
-	$Hud/ScoreLabel.text = str(score)
+	$Hud.reset()
 	$Ground.start()
 	print("Game reset")
