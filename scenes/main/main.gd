@@ -9,6 +9,7 @@ enum GameState {
 }
 
 var score = 0
+var high_score = 0
 var game_state: GameState = GameState.IDLE
 
 func _ready():
@@ -34,11 +35,14 @@ func increment_score():
 	$Hud.set_score(score)
 
 func _on_Player_death():
+	if(score > high_score):
+		high_score = score
+		print("New high score: ", high_score)
 	$Ground.stop()
 	$PipeSpawner.stop()
 	game_state = GameState.GAME_OVER
-	$Hud.show_scoreboard()
-	
+	$Hud.show_scoreboard(score, high_score)
+
 func _start_game():
 	$Player.start()
 	game_state = GameState.ACTIVE
