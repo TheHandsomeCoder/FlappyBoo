@@ -79,7 +79,7 @@ func jump():
 	rotation = deg_to_rad(-30)
 	
 func die():
-	print("I'm dying here!!")
+	print_debug("I'm dying here!!")
 	$CollisionShape2D.set_deferred("disabled", true)
 	SignalBus.emit_signal("player_death")
 

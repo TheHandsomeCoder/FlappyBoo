@@ -7,6 +7,6 @@ func _ready():
     connect("body_entered", Callable(self, "player_collided"))
 
 func player_collided(body: Node2D) -> void:
-    print("player collided with pipe")
-    (body as Player).die()
+	print_debug("player collided with pipe")
+	(body as Player).die()
 

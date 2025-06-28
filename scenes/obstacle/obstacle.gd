@@ -16,10 +16,9 @@ func _physics_process(delta):
 func _on_scoring_area_body_entered(_body: Node2D) -> void:
     # Emit a signal when the player passes through the scoring area
     SignalBus.emit_signal("point_scored")
-    print("Point scored by player!")
+    print_debug("Point scored by player!")
 
 func start():
     speed = Global.speed
 func stop():
     speed = 0
-   
